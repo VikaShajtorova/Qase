@@ -13,7 +13,7 @@ public class SignupPage extends BasePage{
         super(driver);
     }
     public SignupPage open(){
-        driver.get(BASE_URL);
+        driver.get(BASE_URL+"signup");
         return this;
     }
     public SignupPage fillInRegistrationFieldsWithValidData(String email, String password, String passwordConfirmation){
@@ -23,12 +23,10 @@ public class SignupPage extends BasePage{
         return this;
     }
 
-    public SignupPage clickSignUpButton(){
+    public SuccessfulRegistrationPage clickSignUpButton(){
         driver.findElement(SIGN_UP_BUTTON).click();
-        return this;
+        return new SuccessfulRegistrationPage(driver);
     }
-
-
 
     @Override
     public boolean isPageOpen() {
